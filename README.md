@@ -2,7 +2,8 @@
 
 This is the lexer analyzer for the language Anicca, which will be explained below, for the discipline called Compilers.
 
-Anicca
+# Anicca
+
 Em Páli, língua antiga indiana, Anicca (Links para um site externo) significa impermanência. Um nome adequado para uma linguagem de programação que talvez só existira no curto tempo percorrido neste curso.
 
 Nossa tímida linguagem de programação será composta de funções, variáveis, condições, repetiçoes, operadores, e uma biblioteca de poucas funções nativas. O compilador de Anicca irá traduzir seus Programas Fonte para Programas em Python. Vamos tomar como inspiração LearnXinYminutes (Links para um site externo), e definir a linguagem através de um Programa Fonte exemplo.
