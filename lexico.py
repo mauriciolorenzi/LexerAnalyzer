@@ -1,43 +1,73 @@
 import json 
 
 def analisadorLexico(programa):
-    regras = [
+    operadores = ['+', '-', '*', '/']
+    reservado = ['Funcao', 'Logica', 'Texto', 'Numero', 'Logico', 'se', 'se nao se', 'se nao', 'enquanto', 'retorna']
+    numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+    lexer = {
+
+      '-': {
+        '-': 'comentario',
+        ' ': 'operador-menos'
+      },
+      '\\': {
+        'n': 'quebra-linha'        
+      },
+      ':': 'dois-pontos',
+      ''
+
+    }
+
+    regras = {
         '-' : 'operador-menos',
         '--' : 'comentario',
         '\n': 'quebra-linha',
-        'inicio' : 'identificador',
+        #'inicio' : 'identificador',
         ':' : 'dois-pontos',
         'Funcao' : 'reservado',
         '(' : 'abre-parenteses',
         ')' : 'fecha-parenteses',
-        'valor' : 'identificador',
+        #'valor' : 'identificador',
         'Logica' : 'reservado',
         ',' : 'virgula',
-        'item' : 'identificador',
+        #'item' : 'identificador',
         'Texto' : 'reservado',
         'Numero' : 'reservado',
         '::' : 'atribuicao',
         '{' : 'abre-chaves',
         '}' : 'fecha-chaves',
-        'tiposDeVariaveis' : 'identificador',
-        'textoVar' : 'identificador',
+        #'tiposDeVariaveis' : 'identificador',
+        #'textoVar' : 'identificador',
         '\'#\'exemplo##\'' : 'texto',
-        'numeroVar' : 'identificador',
+        #'numeroVar' : 'identificador',
         '1234' : 'numero',
-        'logicoVar' : 'identificador',
+        #'logicoVar' : 'identificador',
         'Logico' : 'reservado',
         'Sim' : 'logico',
-        'tiposDeFluxoDeControle' : 'identificador',
-        'resultado' : 'identificador',
+        #'tiposDeFluxoDeControle' : 'identificador',
+        #'resultado' : 'identificador',
         'Nao' : 'logico',
         'se' : 'reservado',
         '1' : 'numero',
         '=' : 'operador-igual',
         '2' : 'numero',
         'se nao se' : 'reservado',
-        '\'a\'' : 'texto'
+        '\'a\'' : 'texto',
+        '!=' : 'operador-diferente',
+        'se nao' : 'reservado',
+        '@' : 'desconhecido',
+        #'contador' : 'identificador',
+        '0' : 'numero',
+        'enquanto' : 'reservado',
+        #'contador' : 'identificador',
+        '<' : 'operador-menor',
+        '>' : 'operador-maior',
+        '10' : 'numero',
+        '+' : 'operador-mais',
+        'retorna' : 'reservado'
+    }
 
-    ]
     tokens = []
     erros = []
   # for c in programa:
